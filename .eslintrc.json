@@ -1,0 +1,83 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    //原生eslint配置
+    //规则文档: https://eslint.org/docs/latest/
+    "indent": [ "error", 2 ],
+    "linebreak-style": [ "error", "windows" ],
+    "quotes": [ "error", "single" ],
+    "semi": [ "error", "always" ],
+    "arrow-parens": [ "error", "always" ],
+    "array-bracket-spacing": [
+      "error",
+      "always",
+      {
+        "singleValue": true,
+        "objectsInArrays": true,
+        "arraysInArrays": true
+      }
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always",
+      {
+        "arraysInObjects": true,
+        "objectsInObjects": true
+      }
+    ],
+    "no-lonely-if": "error",
+    //eslint-plugin-react配置
+    //规则文档: https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules
+    "react/sort-comp": [ 2 ],
+    "react/jsx-curly-newline": [
+      "error",
+      {
+        "multiline": "consistent",
+        "singleline": "consistent"
+      }
+    ],
+    "react/jsx-max-props-per-line": [
+      2,
+      {
+        "maximum": 1,
+        "when": "always"
+      }
+    ],
+    "react/jsx-first-prop-new-line": [
+      "error",
+      "multiline-multiprop"
+    ],
+    "react/self-closing-comp": [
+      "error", 
+      {
+        "component": true,
+        "html": true
+      }
+    ]
+  }
+}
