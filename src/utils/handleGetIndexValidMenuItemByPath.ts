@@ -6,20 +6,19 @@
 const handleGetIndexValidMenuItemByPath = (
   menu: API.MenuData
 ): IndexValidMenuItemByPath => {
-  const byPath = {};
+  let byPath = {};
 
-  const inner = (data: API.MenuData) => {
-    data.forEach((item: API.MenuItem) => {
-      if(!item.children) {
-        byPath[item.path] = item;
-      }else{
-        inner(item.children);
-      }
-    });
-  };
+  menu.forEach((item: API.MenuItem) => {
+    if(!item.children) {
+      byPath[item.path] = item;
+    }else{
+      byPath = {
+        ...byPath,
+        ...handleGetIndexValidMenuItemByPath(item.children)
+      };
+    }
+  });
 
-  inner(menu);
-  
   return byPath;
 };
 

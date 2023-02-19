@@ -10,29 +10,24 @@ const handleGetCurrentLocation = (
   currentMenuItem: API.MenuItem | undefined,
   indexAllMenuItemById: IndexAllMenuItemByKey<'id'>
 ): API.MenuItem[] | [] => {
-  const res: API.MenuItem[] = [];
+  let res: API.MenuItem[] = [];
 
   if(!currentMenuItem) return res;
 
-  const inner = (
-    item: API.MenuItem,
-    byId: IndexAllMenuItemByKey<'id'>,
-    res: API.MenuItem[]
-  ) => {
-    res.push({
-      id: item.id,
-      key: item.key,
-      path: item.path,
-      label: item.label,
-      redirect: item.redirect
-    });
+  res.push({
+    id: currentMenuItem.id,
+    key: currentMenuItem.key,
+    path: currentMenuItem.path,
+    label: currentMenuItem.label,
+    redirect: currentMenuItem.redirect
+  });
 
-    if(item.pid) {
-      inner(byId[item.pid], byId, res);
-    }
-  };
-
-  inner(currentMenuItem, indexAllMenuItemById, res);
+  if(currentMenuItem.pid) {
+    res = [
+      ...res,
+      ...handleGetCurrentLocation(indexAllMenuItemById[currentMenuItem.pid], indexAllMenuItemById)
+    ];
+  }
 
   return res.reverse();
 };

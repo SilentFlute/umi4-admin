@@ -8,18 +8,18 @@ const handleGetAllMenuItemByKey = <T>(
   menu: API.MenuData,
   key: 'id' | 'path'
 ): IndexAllMenuItemByKey<T> => {
-  const byId = {};
+  let byId = {};
 
-  const inner = (data: API.MenuData) => {
-    data.forEach((item: API.MenuItem) => {
-      byId[item[key]] = item;
+  menu.forEach((item: API.MenuItem) => {
+    byId[item[key]] = item;
 
-      if(item.children) {
-        inner(item.children);
-      }
-    });
-  };
-  inner(menu);
+    if(item.children) {
+      byId = {
+        ...byId,
+        ...handleGetAllMenuItemByKey(item.children, key)
+      };
+    }
+  });
 
   return byId as IndexAllMenuItemByKey<T>;
 };
