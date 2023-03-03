@@ -12,12 +12,12 @@ export const retrieveUserInfo = (): Promise<API.UserInfoResponse> => (
 
 //获取用户权限
 export const retrieveUserAuthority = (): Promise<API.UserAuthorityResponse> => (
-  request.post('/api/authority')
+  request.get('/api/authority')
 );
 
 //获取菜单数据
 export const retrieveMenuData = (): Promise<API.MenuDataResponse> => (
-  request.post('/api/menu')
+  request.get('/api/menu')
 );
 
 //获取用户信息和权限以及菜单

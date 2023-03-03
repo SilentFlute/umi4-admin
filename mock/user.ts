@@ -109,7 +109,7 @@ const userApi = {
     );
   },
   //用户权限
-  'POST /api/authority': async (req: Request, res: Response) => {
+  'GET /api/authority': async (req: Request, res: Response) => {
     await waitTime(1500);
 
     res.send(
@@ -130,7 +130,7 @@ const userApi = {
     );
   },
   //菜单
-  'POST /api/menu': async (req: Request, res: Response) => {
+  'GET /api/menu': async (req: Request, res: Response) => {
     await waitTime(1000);
 
     res.send(
