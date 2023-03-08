@@ -28,7 +28,11 @@
   "rules": {
     //原生eslint配置
     //规则文档: https://eslint.org/docs/latest/
-    "indent": [ "error", 2 ],
+    "indent": [
+      "error",
+      2,
+      { "SwitchCase": 1 }
+    ],
     "linebreak-style": [ "error", "windows" ],
     "quotes": [ "error", "single" ],
     "semi": [ "error", "always" ],
