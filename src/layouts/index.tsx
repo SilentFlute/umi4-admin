@@ -5,7 +5,7 @@ import { Outlet, Link, useLocation, connect, ConnectProps } from 'umi';
 import PageAccess from '@/components/PageAccess';
 import type { UserModelState } from '@/models/user';
 import LayoutWrapper from '@/components/LayoutWrapper';
-import handleConstructNewMenu from '@/utils/handleConstructNewMenu';
+import handleRecursiveNestedData from '@/utils/handleRecursiveNestedData';
 import handleGetCurrentLocation from '@/utils/handleGetCurrentLocation';
 
 const { Header, Content, Sider } = Layout;
@@ -90,7 +90,7 @@ const BasicLayout: FC<Props> = (props) => {
   //所有MenuItem:
   //有children的: 一定都有path, lable不动, children下的label修改为<Link to={path} />
   //无children的: 有path的label修改为<Link to={path} />, 没path的label不动
-  const consumableMenu = handleConstructNewMenu(
+  const consumableMenu = handleRecursiveNestedData(
     menu,
     (item: API.MenuItem) => ({
       ...item,
