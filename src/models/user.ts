@@ -6,7 +6,7 @@ import {
 import type { Effect, Reducer } from 'umi';
 import handleRedirect from '@/utils/handleRedirect';
 import handleGetRootSubmenuKeys from '@/utils/handleGetRootSubmenuKeys';
-import handleGetAllMenuItemByKey from '@/utils/handleGetAllMenuItemByKey';
+import handleGetEachDatumFromNestedDataByKey from '@/utils/handleGetEachDatumFromNestedDataByKey';
 import handleGetIndexValidMenuItemByPath from '@/utils/handleGetIndexValidMenuItemByPath';
 
 /**
@@ -177,7 +177,7 @@ const UserModel: UserModelType = {
         menuRes = res[1] as API.MenuDataResponse;
       }
 
-      const indexAllMenuItemByPath = handleGetAllMenuItemByKey<'path'>(menuRes.data, 'path');
+      const indexAllMenuItemByPath = handleGetEachDatumFromNestedDataByKey(menuRes.data, 'path');
       const indexValidMenuItemByPath = handleGetIndexValidMenuItemByPath(menuRes.data);
 
       //在登录完获取菜单数据之后做是否需要重定向的操作
@@ -200,7 +200,7 @@ const UserModel: UserModelType = {
           layoutWrapperLoading: false,
           authority: userAuthorityRes.data.authority,
           rootSubmenuKeys: handleGetRootSubmenuKeys(menuRes.data),
-          indexAllMenuItemById: handleGetAllMenuItemByKey<'id'>(menuRes.data, 'id')
+          indexAllMenuItemById: handleGetEachDatumFromNestedDataByKey(menuRes.data, 'id')
         }
       });
 
