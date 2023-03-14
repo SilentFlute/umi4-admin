@@ -8,7 +8,7 @@ export default {
   ],
   // proxy,
   dva: {},
-  title: 'UMI4 APP',
+  title: 'UMI4 Admin',
   favicons: [
     '/favicon.svg'
   ]
