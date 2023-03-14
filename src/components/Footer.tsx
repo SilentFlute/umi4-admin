@@ -8,6 +8,9 @@ const Footer: React.FC = () => {
 
   return (
     <DefaultFooter
+      style={{
+        backgroundColor: 'inherit'
+      }}
       copyright={`${currentYear} ${defaultMessage}`}
       links={[
         {
