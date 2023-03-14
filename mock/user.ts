@@ -19,7 +19,7 @@ const handleCommonRes = (data: Record<string, unknown> | Record<string, unknown>
 
 const userApi = {
   //登录
-  'POST /api/login/account': async (req: Request, res: Response) => {
+  'POST /api/user/login': async (req: Request, res: Response) => {
     const { password, username, type } = req.body;
     await waitTime(2000);
 
@@ -47,7 +47,7 @@ const userApi = {
     );
   },
   //用户信息
-  'GET /api/currentUser': async (req: Request, res: Response) => {
+  'GET /api/user/info': async (req: Request, res: Response) => {
     await waitTime(2000);
 
     if(!req.headers.authorization) {
@@ -109,7 +109,7 @@ const userApi = {
     );
   },
   //用户权限
-  'GET /api/authority': async (req: Request, res: Response) => {
+  'GET /api/user/authority': async (req: Request, res: Response) => {
     await waitTime(1500);
 
     res.send(
@@ -130,7 +130,7 @@ const userApi = {
     );
   },
   //菜单
-  'GET /api/menu': async (req: Request, res: Response) => {
+  'GET /api/user/menu': async (req: Request, res: Response) => {
     await waitTime(1000);
 
     res.send(
@@ -237,13 +237,13 @@ const userApi = {
     );
   },
   //登出
-  'POST /api/login/outLogin': (req: Request, res: Response) => {
+  'POST /api/user/logout': (req: Request, res: Response) => {
     res.send(
       handleCommonRes({})
     );
   },
   //验证码
-  'GET /api/login/captcha': async (req: Request, res: Response) => {
+  'GET /api/user/captcha': async (req: Request, res: Response) => {
     await waitTime(2000);
     return res.send(
       handleCommonRes({

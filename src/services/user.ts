@@ -2,22 +2,22 @@ import request from '@/utils/request';
 
 //登录
 export const userLogin = (params: Record<string, unknown>): Promise<API.LoginResponse> => (
-  request.post('/api/login/account', params)
+  request.post('/api/user/login', params)
 );
 
 //获取用户信息
 export const retrieveUserInfo = (): Promise<API.UserInfoResponse> => (
-  request.get('/api/currentUser')
+  request.get('/api/user/info')
 );
 
 //获取用户权限
 export const retrieveUserAuthority = (): Promise<API.UserAuthorityResponse> => (
-  request.get('/api/authority')
+  request.get('/api/user/authority')
 );
 
 //获取菜单数据
 export const retrieveMenuData = (): Promise<API.MenuDataResponse> => (
-  request.get('/api/menu')
+  request.get('/api/user/menu')
 );
 
 //获取用户信息和权限以及菜单
@@ -39,10 +39,10 @@ export const retrieveUserAuthorityMenu = async (): Promise<API.UserAuthMenuRespo
 
 //登出
 export const userLogout = (): Promise<API.LogoutResponse> => (
-  request.post('/api/login/outLogin')
+  request.post('/api/user/logout')
 );
 
 //获取验证码
 export const retrieveCaptcha = (params: Record<string, string>): Promise<API.CaptchaResponse> => (
-  request.get('/api/login/captcha', { params })
+  request.get('/api/user/captcha', { params })
 );
