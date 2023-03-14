@@ -5,15 +5,11 @@ import { Outlet, Link, useLocation, connect, ConnectProps } from 'umi';
 import PageAccess from '@/components/PageAccess';
 import type { UserModelState } from '@/models/user';
 import LayoutWrapper from '@/components/LayoutWrapper';
+import Nav from '@/components/Nav';
 import handleRecursiveNestedData from '@/utils/handleRecursiveNestedData';
 import handleGetCurrentLocation from '@/utils/handleGetCurrentLocation';
 
 const { Header, Content, Sider } = Layout;
-
-const items1: MenuProps['items'] = [ '1', '2', '3' ].map((key) => ({
-  key,
-  label: `nav ${key}`,
-}));
 
 type Props = {
   user: UserModelState;
@@ -108,14 +104,13 @@ const BasicLayout: FC<Props> = (props) => {
   return (
     <LayoutWrapper>
       <Layout style={{ minHeight: '100vh' }}>
-        <Header className="header">
-          <div className="logo" />
-          <Menu
-            theme="dark"
-            items={items1}
-            mode="horizontal"
-            defaultSelectedKeys={[ '2' ]}
-          />
+        <Header
+          style={{
+            padding: '0',
+            height: 'auto'
+          }}
+        >
+          <Nav />
         </Header>
         <Layout>
           <Sider
