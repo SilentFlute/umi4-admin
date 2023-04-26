@@ -157,7 +157,7 @@ const UserModel: UserModelType = {
         userAuthorityRes = res[1] as API.UserAuthorityResponse;
         menuRes = res[2] as API.MenuDataResponse;
       }else{
-        //非登录页首先查询用户的登录状态, 未登录则不继续操作
+        //其他情形首先查询用户的登录状态, 未登录则不继续操作
         try {
           userInfoRes = yield call(retrieveUserInfo);
         } catch (error) {
