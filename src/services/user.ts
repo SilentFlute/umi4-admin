@@ -21,7 +21,7 @@ export const retrieveMenuData = (): Promise<API.MenuDataResponse> => (
 );
 
 //获取用户信息和权限以及菜单
-export const retrieveUserInfoAuthorityMenu = async (): Promise<API.UserInfoAuthMenuResponse> => (
+export const retrieveUserInfoAuthorityMenu = (): Promise<API.UserInfoAuthMenuResponse> => (
   Promise.all([
     retrieveUserInfo(),
     retrieveUserAuthority(),
@@ -30,7 +30,7 @@ export const retrieveUserInfoAuthorityMenu = async (): Promise<API.UserInfoAuthM
 );
 
 //获取用户权限以及菜单
-export const retrieveUserAuthorityMenu = async (): Promise<API.UserAuthMenuResponse> => (
+export const retrieveUserAuthorityMenu = (): Promise<API.UserAuthMenuResponse> => (
   Promise.all([
     retrieveUserAuthority(),
     retrieveMenuData()
