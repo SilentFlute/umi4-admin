@@ -218,7 +218,7 @@ type MenuItem = {
 │   │   ├── pageA
 │   │   │   └── index.tsx
 │   │   │   └── index.less
-│   │   │   ├── serveces
+│   │   │   ├── services
 │   │   │   │   └── pageA.ts
 //...
 ```
@@ -238,7 +238,7 @@ type MenuItem = {
 │   │   ├── pageA
 │   │   │   └── index.tsx
 │   │   │   └── index.less
-│   │   │   ├── _serveces.ts //或者.serveces.ts
+│   │   │   ├── _services.ts //或者.services.ts
 //...
 ```
 或者叫其他名字也行(比如`_api.ts`), 这个随意, 只是记得前面一定要加`.`或者`_`, 不然会被当做是一个路由, 建议就按照`umi`的约定使用`services`, 这样更统一, 也更易维护
