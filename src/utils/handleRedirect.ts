@@ -46,7 +46,7 @@ const handleRedirect = (
         location: { search, pathname }
       } = window;
 
-      //老驴url上有查询字符串参数的情况
+      //考虑url上有查询字符串参数的情况
       //有效
       if(indexValidMenuItemByPath[pathname]) {
         routePath = `${pathname}${search}`;
