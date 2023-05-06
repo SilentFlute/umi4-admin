@@ -100,6 +100,7 @@ declare namespace API {
    * @description key 菜单项的唯一标志, 使用string类型代替React.Key: 
    * https://ant.design/components/menu-cn#itemtype, 不然会出现key类型不对导致的菜单项无法被选中的问题
    * @description lable 菜单的标题
+   * @description hideInMenu 在菜单中隐藏
    * @description path 路由路径,
    * 有无children的菜单都会有这个字段, 无children的菜单跳转这个值, 有children的跳redirect,
    * 因为有children表示这个菜单是可展开的, 此时有children的path只是表示它的一个位置, 而非真正有效的路由
