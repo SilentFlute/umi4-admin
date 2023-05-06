@@ -43,19 +43,20 @@ const handleRedirect = (
       }
     }else{
       const {
-        location: { pathname }
+        location: { search, pathname }
       } = window;
 
+      //老驴url上有查询字符串参数的情况
       //有效
       if(indexValidMenuItemByPath[pathname]) {
-        routePath = pathname;
+        routePath = `${pathname}${search}`;
       }else if(indexAllMenuItemByPath[pathname]) {
         //无效
         //有子路由: 跳子路由
-        routePath = indexAllMenuItemByPath[pathname].redirect;
+        routePath = `${indexAllMenuItemByPath[pathname].redirect}${search}`;
       }else{
         //无子路由: 也跳, 此时交由umi处理404的情况
-        routePath = pathname;
+        routePath = `${pathname}${search}`;
       }
     }
 
