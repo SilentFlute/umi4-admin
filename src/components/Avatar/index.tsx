@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 import { connect } from 'umi';
 import { Dropdown, Space } from 'antd';
 import { LogoutOutlined } from '@ant-design/icons';

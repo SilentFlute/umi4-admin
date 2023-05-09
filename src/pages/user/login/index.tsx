@@ -1,4 +1,5 @@
-import { FC, useState, Fragment } from 'react';
+import type { FC } from 'react';
+import { useState, Fragment } from 'react';
 import { Alert, message, Tabs } from 'antd';
 import { SelectLang, ConnectProps, connect } from 'umi';
 import {
