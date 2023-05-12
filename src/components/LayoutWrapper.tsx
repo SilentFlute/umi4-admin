@@ -70,7 +70,7 @@ const LayoutWrapper: FC<Props> = (props) => {
     }
    */
   if(!layoutWrapperLoading) {
-    if(isLogin){
+    if(isLogin) {
       if(pathname !== '/user/login') {
         pageContent = children;
       }
