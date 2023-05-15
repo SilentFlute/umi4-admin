@@ -119,6 +119,7 @@ declare namespace API {
     key: string;
     path: string;
     redirect: string;
+    hideInMenu?: boolean;
     label: React.ReactElement | string;
     children?: MenuItem[];
   }
