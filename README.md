@@ -250,10 +250,10 @@ type MenuItem = {
 这个地方是个重点, 同时也是一个需要自己实现的地方, 因为自带的权限控制需要`initial-state`, 而这个`initial-state`又依赖自带的`/src/app.tsx`布局, 刚好这里使用的是自定义的布局, 因此最终只能自己实现
 
 这个逻辑在后端自然是`RBAC`的方案, 而前端关注的主要则是具体的权限, 具体逻辑如下:
-1. 前后端约定每个页面的权限, 这里包括页面访问权限, 就是路由的权限和页面内各个操作元素的权限, 并在页面上写好, 代码里是写在`_authority.ts`中(以`object`的形式定义), 以`_`开头是因为这样才不会被算作一个路由
-2. 后端返回当前登录用户的所有权限(类型是`string[]`), 前端取到之后和`_authority.ts`中的做对比, 从而达到鉴权的目的
+1. 前后端约定每个页面的权限, 这里包括页面访问权限, 就是路由的权限和页面内各个操作元素的权限, 并在页面上写好, 代码里是写在`authority.ts`中(以`object`的形式定义), 以`_`开头是因为这样才不会被算作一个路由
+2. 后端返回当前登录用户的所有权限(类型是`string[]`), 前端取到之后和`authority.ts`中的做对比, 从而达到鉴权的目的
 
-权限我分成了页面和页面内元素的权限, 具体代码在这: 页面权限: `/src/components/PageAccess.tsx`, 页面内元素的权限: `/src/components/Access.tsx`, 前端权限的声明, 页面权限在这: `/src/pages/_authority.tsx`, 各个页面内权限写在各个页面的目录中, 比如: `/src/pages/about/m/_authority.ts`
+权限我分成了页面和页面内元素的权限, 具体代码在这: 页面权限: `/src/components/PageAccess.tsx`, 页面内元素的权限: `/src/components/Access.tsx`, 前端权限的声明, 页面权限在这: `/src/pages/authority.ts`, 各个页面内权限写在各个页面的目录中, 比如: `/src/pages/about/m/authority.ts`
 
 页面权限需要根据不同的路由来决定, 因此它的类型定义如下:
 ```
