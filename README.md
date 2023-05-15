@@ -239,12 +239,10 @@ type MenuItem = {
 │   │   ├── pageA
 │   │   │   └── index.tsx
 │   │   │   └── index.less
-│   │   │   ├── _services.ts //或者.services.ts
+│   │   │   ├── services.ts
 //...
 ```
-或者叫其他名字也行(比如`_api.ts`), 这个随意, 只是记得前面一定要加`.`或者`_`, 不然会被当做是一个路由, 建议就按照`umi`的约定使用`services`, 这样更统一, 也更易维护
-
-关于约定式路由的判断规则可以看这个: [约定式路由_umi3](https://v3.umijs.org/zh-CN/docs/convention-routing#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)
+或者叫其他名字也行(比如`api.ts`), 建议就按照`umi`的约定使用`services`, 这样更统一, 也更易维护, 以及请求文件虽以`.ts`结尾, 但里面不包含`jsx`元素, 不会被注册为路由, 因此这么写没问题, 关于约定式路由的判断规则可以看这个: [约定式路由_umi3](https://v3.umijs.org/zh-CN/docs/convention-routing#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)
 
 # 权限
 这个地方是个重点, 同时也是一个需要自己实现的地方, 因为自带的权限控制需要`initial-state`, 而这个`initial-state`又依赖自带的`/src/app.tsx`布局, 刚好这里使用的是自定义的布局, 因此最终只能自己实现
