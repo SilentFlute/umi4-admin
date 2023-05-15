@@ -7,6 +7,7 @@ import PageAccess from '@/components/PageAccess';
 import type { UserModelState } from '@/models/user';
 import LayoutWrapper from '@/components/LayoutWrapper';
 import Nav from '@/components/Nav';
+import Page404 from '@/pages/404';
 import handleRecursiveNestedData from '@/utils/handleRecursiveNestedData';
 import handleGetCurrentLocation from '@/utils/handleGetCurrentLocation';
 
@@ -138,7 +139,11 @@ const BasicLayout: FC<Props> = (props) => {
                       <Outlet />
                     </PageAccess>
                   )
-                  : <Outlet />
+                  //这里不再使用<Outlet />是因为当一条路由在菜单接口中没有返回, 但实际项目中创建了,
+                  //此时访问应该显示404页面; 菜单中没有, 实际项目中有表示这条路由/页面当前登录用户无法访问,
+                  //而如果继续使用<Outlet />则那条路由/页面依旧会被渲染, 因为对于umi来说这条路由/页面是有效的,
+                  //是存在的, 而对于本项目来说则不是
+                  : <Page404 />
               }
             </Content>
           </Layout>
