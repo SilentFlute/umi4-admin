@@ -1,7 +1,7 @@
 import type { FC, ReactElement } from 'react';
 import { ConnectProps, connect, history, useLocation } from 'umi';
 import { Button, Result } from 'antd';
-import authority from '@/pages/_authority';
+import authority from '@/pages/authority';
 import type { UserModelState } from '@/models/user';
 
 type Props = {

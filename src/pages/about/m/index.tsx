@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import Access from '@/components/Access';
-import authority from './_authority';
+import authority from './authority';
 
 const { aboutMUpdate } = authority;
 
