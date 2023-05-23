@@ -2,12 +2,10 @@ import type { FC } from 'react';
 import { connect } from 'umi';
 import { Dropdown, Space } from 'antd';
 import { LogoutOutlined } from '@ant-design/icons';
-import type { UserConnectedProps } from '@/layouts';
+import type { UserConnectedProps } from '@/models/user';
 import './index.less';
 
-type Props = UserConnectedProps;
-
-const Avatar: FC<Props> = (props) => {
+const Avatar: FC<UserConnectedProps> = (props) => {
   const {
     user: { data }, dispatch
   } = props;
@@ -55,7 +53,7 @@ const Avatar: FC<Props> = (props) => {
 };
 
 export default connect(
-  ({ user }: { user: Props['user'] }) => ({
+  ({ user }: { user: UserConnectedProps['user'] }) => ({
     user
   })
 )(Avatar);
