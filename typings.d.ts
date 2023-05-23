@@ -51,7 +51,6 @@ declare namespace API {
    */
   type LoginData = {
     token: string;
-    type: string;
   };
 
   /** 登录响应结果 */

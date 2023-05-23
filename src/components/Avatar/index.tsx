@@ -11,7 +11,7 @@ const Avatar: FC<UserConnectedProps> = (props) => {
   } = props;
 
   const handleLogout = () => {
-    dispatch({
+    dispatch?.({
       type: 'user/logout'
     });
   };

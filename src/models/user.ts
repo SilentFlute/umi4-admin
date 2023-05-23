@@ -222,7 +222,7 @@ const UserModel: UserModelType = {
       }
     },
     //重置登录状态
-    *resetLoginStatus({ payload }, { call, put }) {
+    *resetLoginStatus(_, { put }) {
       localStorage.removeItem('Authorization');
       
       yield put({

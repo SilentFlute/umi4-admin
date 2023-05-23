@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { useState, Fragment } from 'react';
-import { Alert, message, Tabs } from 'antd';
-import { SelectLang, connect } from 'umi';
+import { message, Tabs } from 'antd';
+import { connect } from 'umi';
 import {
   AlipayCircleOutlined,
   LockOutlined,
@@ -16,41 +16,21 @@ import { retrieveCaptcha } from '@/services/user';
 import type { UserConnectedProps } from '@/models/user';
 import styles from './index.less';
 
-const LoginMessage: FC<{
-  content: string;
-}> = ({ content }) => (
-  <Alert
-    style={{
-      marginBottom: 24,
-    }}
-    message={content}
-    type="error"
-    showIcon
-  />
-);
-
 const Index: FC<UserConnectedProps> = (props) => {
   const [ type, setType ] = useState<string>('account');
   const { user, dispatch } = props;
 
   const handleSubmit = async (values: API.LoginParams) => {
-    dispatch({
+    dispatch?.({
       type: 'user/login',
       payload: values
     });
   };
 
-  const { data, loginBtnLoading } = user;
-
-  const { status, type: loginType } = data;
+  const { loginBtnLoading } = user;
 
   return (
     <div className={styles.container}>
-      <div
-        className={styles.lang}
-        data-lang>
-        {SelectLang && <SelectLang />}
-      </div>
       <div className={styles.content}>
         <LoginForm
           logo={
@@ -100,11 +80,6 @@ const Index: FC<UserConnectedProps> = (props) => {
               }
             ]}
           />
-          {status === 'error' && loginType === 'account' && (
-            <LoginMessage
-              content="账户或密码错误(admin/ant.design)"
-            />
-          )}
           {type === 'account' && (
             <Fragment>
               <ProFormText
@@ -137,7 +112,6 @@ const Index: FC<UserConnectedProps> = (props) => {
               />
             </Fragment>
           )}
-          {status === 'error' && loginType === 'mobile' && <LoginMessage content="验证码错误" />}
           {type === 'mobile' && (
             <Fragment>
               <ProFormText

@@ -24,7 +24,7 @@ const LayoutWrapper: FC<Props> = (props) => {
   useEffect(
     () => {
       //调用户信息相关接口查询登录状态(401表示未登录)
-      dispatch({
+      dispatch?.({
         type: 'user/getUserInfoAuthorityMenu',
         payload: {
           type: 'relay'
