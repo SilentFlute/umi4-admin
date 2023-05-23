@@ -6,12 +6,17 @@
  */
 const handleGetEachDatumFromNestedDataByKey = <T extends { children?: T[] }>(
   data: T[],
-  key: string
+  key: keyof T //确定key的类型为T的键名
 ): Record<string, T> => {
-  let byKey = {};
+  //显式声明byKey的类型
+  let byKey: Record<string, T> = {};
 
   data.forEach((datum) => {
-    byKey[datum[key]] = datum;
+    //添加类型检查, 避免undefined作为对象的键名
+    if(typeof datum[key] !== 'undefined') {
+      //强制转换为字符串类型, 避免非字符串类型作为对象的键名
+      byKey[String(datum[key])] = datum;
+    }
 
     if(datum.children) {
       byKey = {

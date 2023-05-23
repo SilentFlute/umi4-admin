@@ -28,9 +28,11 @@ type IndexValidMenuItemByPath = {
  * 通过API.MenuItem的key索引所有菜单项的映射(包括不可以被选中, 不可以更改url pathname的菜单项)
  * @description key是API.MenuItem的key, value是API.MenuItem
  */
-type IndexAllMenuItemByKey<T> = {
-  [key: API.MenuItem[T]]: API.MenuItem;
+type IndexAllMenuItemByKey<T extends keyof API.MenuItem> = T extends keyof API.MenuItem
+? {
+  [key in API.MenuItem[T]]: API.MenuItem
 }
+: never;
 
 declare namespace API {
   /**

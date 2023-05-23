@@ -6,7 +6,7 @@
 const handleGetIndexValidMenuItemByPath = (
   menu: API.MenuData
 ): IndexValidMenuItemByPath => {
-  let byPath = {};
+  let byPath: IndexValidMenuItemByPath = {};
 
   menu.forEach((item: API.MenuItem) => {
     if(!item.children) {

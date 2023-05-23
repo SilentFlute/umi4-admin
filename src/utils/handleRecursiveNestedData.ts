@@ -18,6 +18,6 @@ const handleRecursiveNestedData = <T extends { children?: T[] }>(
         : datumCb(datum)
     ))
     : []
-);
+  );
 
 export default handleRecursiveNestedData;
