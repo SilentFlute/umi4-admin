@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { useState, Fragment } from 'react';
 import { Alert, message, Tabs } from 'antd';
-import { SelectLang, ConnectProps, connect } from 'umi';
+import { SelectLang, connect } from 'umi';
 import {
   AlipayCircleOutlined,
   LockOutlined,
@@ -13,7 +13,7 @@ import {
 import { ProFormCaptcha, ProFormCheckbox, ProFormText, LoginForm } from '@ant-design/pro-components';
 import Footer from '@/components/Footer';
 import { retrieveCaptcha } from '@/services/user';
-import type { UserModelState } from '@/models/user';
+import type { UserConnectedProps } from '@/models/user';
 import styles from './index.less';
 
 const LoginMessage: FC<{
@@ -29,11 +29,7 @@ const LoginMessage: FC<{
   />
 );
 
-type Props = {
-  user: UserModelState
-} & ConnectProps;
-
-const Index: FC<Props> = (props) => {
+const Index: FC<UserConnectedProps> = (props) => {
   const [ type, setType ] = useState<string>('account');
   const { user, dispatch } = props;
 
@@ -222,7 +218,7 @@ const Index: FC<Props> = (props) => {
 };
 
 export default connect(
-  ({ user }: { user: UserModelState }) => ({
+  ({ user }: { user: UserConnectedProps['user'] }) => ({
     user
   })
 )(Index);

@@ -1,13 +1,12 @@
 import type { FC, ReactElement } from 'react';
-import { ConnectProps, connect, history, useLocation } from 'umi';
+import { connect, history, useLocation } from 'umi';
 import { Button, Result } from 'antd';
 import authority from '@/pages/authority';
-import type { UserModelState } from '@/models/user';
+import type { UserConnectedProps } from '@/models/user';
 
 type Props = {
-  user: UserModelState;
   children: ReactElement;
-} & ConnectProps;
+} & UserConnectedProps;
 
 //处理页面权限的组件, 放置在所有需要鉴权的页面的最外层
 const PageAccess: FC<Props> = (props): ReactElement | null => {
@@ -43,7 +42,7 @@ const PageAccess: FC<Props> = (props): ReactElement | null => {
 };
 
 export default connect(
-  ({ user }: { user: UserModelState }) => ({
+  ({ user }: { user: UserConnectedProps['user'] }) => ({
     user
   })
 )(PageAccess);

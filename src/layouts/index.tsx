@@ -2,9 +2,9 @@ import type { FC } from 'react';
 import { useState, useEffect } from 'react';
 import { Layout, Menu } from 'antd';
 import type { MenuProps } from 'antd';
-import { Outlet, Link, useLocation, connect, ConnectProps } from 'umi';
+import { Outlet, Link, useLocation, connect } from 'umi';
 import PageAccess from '@/components/PageAccess';
-import type { UserModelState } from '@/models/user';
+import type { UserConnectedProps } from '@/models/user';
 import LayoutWrapper from '@/components/LayoutWrapper';
 import Nav from '@/components/Nav';
 import Page404 from '@/pages/404';
@@ -12,10 +12,6 @@ import handleRecursiveNestedData from '@/utils/handleRecursiveNestedData';
 import handleGetCurrentLocation from '@/utils/handleGetCurrentLocation';
 
 const { Header, Content, Sider } = Layout;
-
-type Props = {
-  user: UserModelState;
-} & ConnectProps;
 
 /**
  * 获取openKeys的方法
@@ -42,7 +38,7 @@ const handleGetOpenKeys = (currentLocation: API.MenuItem[] | []): string[] => {
 };
 
 //自定义的layout页面, 顶部导航通栏+侧边栏(菜单)布局, 可根据需要做调整
-const BasicLayout: FC<Props> = (props) => {
+const BasicLayout: FC<UserConnectedProps> = (props) => {
   const [ collapsed, setCollapsed ] = useState(false);
   const [ openKeys, setOpenKeys ] = useState([ '' ]);
   const { pathname } = useLocation();
@@ -154,7 +150,7 @@ const BasicLayout: FC<Props> = (props) => {
 };
 
 export default connect(
-  ({ user }: { user: UserModelState }) => ({
+  ({ user }: { user: UserConnectedProps['user'] }) => ({
     user
   })
 )(BasicLayout);

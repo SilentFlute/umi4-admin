@@ -1,12 +1,8 @@
 import { PureComponent } from 'react';
-import { ConnectProps, connect } from 'umi';
-import type { UserModelState } from '@/models/user';
+import { connect } from 'umi';
+import type { UserConnectedProps } from '@/models/user';
 
-type Props = {
-  user: UserModelState;
-} & ConnectProps;
-
-class Index extends PureComponent<Props> {
+class Index extends PureComponent<UserConnectedProps> {
 
   render() {
     const { user } = this.props;
@@ -20,7 +16,7 @@ class Index extends PureComponent<Props> {
 }
 
 export default connect(
-  ({ user }: { user: UserModelState }) => ({
+  ({ user }: { user: UserConnectedProps['user'] }) => ({
     user
   })
 )(Index);

@@ -1,15 +1,14 @@
 import { Fragment, useEffect } from 'react';
 import type { FC, ReactElement } from 'react';
 import { Spin } from 'antd';
-import { Helmet, useLocation, ConnectProps, connect } from 'umi';
-import type { UserModelState } from '@/models/user';
+import { Helmet, useLocation, connect } from 'umi';
+import type { UserConnectedProps } from '@/models/user';
 import LoginPage from '@/pages/user/login';
 import cfg from '../../config/config';
 
 type Props = {
-  user: UserModelState;
   children: ReactElement;
-} & ConnectProps;
+} & UserConnectedProps;
 
 //登录页不走/src/layouts, 登录完之后的页面才走/src/layouts
 const LayoutWrapper: FC<Props> = (props) => {
@@ -91,7 +90,7 @@ const LayoutWrapper: FC<Props> = (props) => {
 };
 
 export default connect(
-  ({ user }: { user: UserModelState }) => ({
+  ({ user }: { user: UserConnectedProps['user'] }) => ({
     user
   })
 )(LayoutWrapper);

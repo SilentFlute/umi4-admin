@@ -3,7 +3,7 @@ import {
   userLogin, retrieveUserInfo, retrieveUserInfoAuthorityMenu, userLogout,
   retrieveUserAuthorityMenu
 } from '@/services/user';
-import type { Effect, Reducer } from 'umi';
+import type { Effect, Reducer, ConnectProps } from 'umi';
 import handleRedirect from '@/utils/handleRedirect';
 import handleGetRootSubmenuKeys from '@/utils/handleGetRootSubmenuKeys';
 import handleGetEachDatumFromNestedDataByKey from '@/utils/handleGetEachDatumFromNestedDataByKey';
@@ -22,7 +22,7 @@ import handleGetIndexValidMenuItemByPath from '@/utils/handleGetIndexValidMenuIt
  * @description indexAllMenuItemByPath 通过path索引所有菜单项的映射
  * @description indexValidMenuItemByPath 通过path索引有效菜单项的映射
  */
-export type UserModelState = {
+type UserModelState = {
   isLogin: boolean;
   data: API.UserInfo;
   menu: API.MenuData;
@@ -34,6 +34,10 @@ export type UserModelState = {
   indexValidMenuItemByPath: IndexValidMenuItemByPath;
   indexAllMenuItemByPath: IndexAllMenuItemByKey<'path'>;
 }
+
+export type UserConnectedProps = {
+  user: UserModelState;
+} & ConnectProps;
 
 type UserModelType = {
   namespace: 'user';

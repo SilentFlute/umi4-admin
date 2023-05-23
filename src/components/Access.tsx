@@ -1,13 +1,12 @@
 import type { FC, ReactElement } from 'react';
-import { ConnectProps, connect } from 'umi';
-import type { UserModelState } from '@/models/user';
+import { connect } from 'umi';
+import type { UserConnectedProps } from '@/models/user';
 
 type Props = {
   authority: string;
-  user: UserModelState;
   children: ReactElement;
   fallback?: ReactElement;
-} & ConnectProps;
+} & UserConnectedProps;
 
 //处理页面元素权限的组件
 const Access: FC<Props> = (props): ReactElement | null => {
@@ -27,7 +26,7 @@ const Access: FC<Props> = (props): ReactElement | null => {
 };
 
 export default connect(
-  ({ user }: { user: UserModelState }) => ({
+  ({ user }: { user: UserConnectedProps['user'] }) => ({
     user
   })
 )(Access);
