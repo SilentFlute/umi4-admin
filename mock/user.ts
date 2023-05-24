@@ -20,17 +20,16 @@ const handleCommonRes = (data: Record<string, unknown> | Record<string, unknown>
 const userApi = {
   //登录
   'POST /api/user/login': async (req: Request, res: Response) => {
-    const { password, username, type } = req.body;
+    const { password, username, mobile, captcha } = req.body;
     await waitTime(2000);
 
     switch(true) {
       case username === 'admin' && password === 'ant.design':
       case username === 'user' && password === 'ant.design':
-      case type === 'mobile':
+      case /^1\d{10}$/.test(mobile) && Boolean(captcha):
         res.send(
           handleCommonRes({
-            token: 'Bearer xxx',
-            type
+            token: 'Bearer xxx'
           })
         );
         return;
@@ -39,8 +38,7 @@ const userApi = {
     res.send(
       handleCommonRes(
         {
-          token: 'Wrong Bearer',
-          type
+          token: 'Wrong Bearer'
         },
         10001
       )

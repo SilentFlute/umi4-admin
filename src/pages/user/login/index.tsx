@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import { useState, Fragment } from 'react';
-import { message, Tabs } from 'antd';
+import { notification, Tabs } from 'antd';
 import { connect } from 'umi';
 import {
   AlipayCircleOutlined,
@@ -120,7 +120,7 @@ const Index: FC<UserConnectedProps> = (props) => {
                   prefix: <MobileOutlined className={styles.prefixIcon} />,
                 }}
                 name="mobile"
-                placeholder="手机号"
+                placeholder="手机号: 1开头的11位数字"
                 rules={[
                   {
                     required: true,
@@ -140,7 +140,7 @@ const Index: FC<UserConnectedProps> = (props) => {
                 captchaProps={{
                   size: 'large',
                 }}
-                placeholder="验证码"
+                placeholder="验证码: 任意字符"
                 captchaTextRender={(timing, count) => {
                   if (timing) {
                     return `${count} 获取验证码`;
@@ -161,7 +161,9 @@ const Index: FC<UserConnectedProps> = (props) => {
                   if (res.code) {
                     return;
                   }
-                  message.success('获取验证码成功！验证码为：1234');
+                  notification.success({
+                    message: '获取验证码成功! 验证码为: 1234'
+                  });
                 }}
               />
             </Fragment>
