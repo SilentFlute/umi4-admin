@@ -9,5 +9,6 @@
 .swc
 *.md
 !README.md
+!README-en_US.md
 *.log
 .env
