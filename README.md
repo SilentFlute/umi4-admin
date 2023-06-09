@@ -1,5 +1,7 @@
 简体中文 | [English](./README-en_US.md)
 
+`node`版本推荐使用`18.14.2`, `yarn`版本推荐使用`1.22.x`
+
 # 概览
 [umi4](https://umijs.org/)搭建的轻量级开发框架, 参考了如下项目框架/文档搭建而成:
 1. `umi4`脚手架生成的`simple`, `antd pro`项目模板以及`umi4`的文档: [umi4](https://umijs.org/)

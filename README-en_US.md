@@ -1,5 +1,7 @@
 [简体中文](./README.md) | English
 
+The recommended `node` version is `18.14.2`, and the recommended `yarn` version is `1.22.x`
+
 # Overview
 
 A lightweight development framework built with [umi4](https://umijs.org/), integrated conventional routing, custom layout(including custom routing rendering), retrieve menu data from server side, and global state management and permission verification, newest pkg and the best development experience, clone to use
