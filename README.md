@@ -294,10 +294,10 @@ type Authority = {
 
 登录之后后端返回的用户信息和用户权限都放到全局状态也就是`dva`中
 
-# tsconfig
+# TS Config
 这个来自[antd pro](https://pro.ant.design/zh-CN)的脚手架工具`@ant-design/pro-cli`生成的`umi3`的`antd pro`项目当中, 功能完备, 只做了一个修改: 将`ts`的类型声明文件的路径写到了里面的`include`字段中, 也就是将全局的`d.ts`文件放到了根目录
 
-# lint
+# Lint
 这部分参考了[12 essential ESLint rules for React](https://blog.logrocket.com/12-essential-eslint-rules-react/), 最终配置和`umi`自带的有很大的不同, 这里我只使用了`eslint`, 并且做了配置:
 ```
 "editor.codeActionsOnSave": {
