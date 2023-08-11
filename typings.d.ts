@@ -1,6 +1,8 @@
 // import 'umi/typings';
 /// reference path="./node_modules/@types/react/index.d.ts" />
 
+declare module '*.less';
+
 /**
  * 页面权限类型
  * @description key是路由path, value是权限数组
