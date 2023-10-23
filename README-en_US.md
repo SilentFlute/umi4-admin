@@ -55,6 +55,8 @@ Should i commmit `.env` file to my `git` repository? good question, refer to the
 
 I agree not to commit the `.env` file to the repo and to have only one `.env` file, cuz the config in it is not safe for commit to repo, additionally, each environment has different config, we can share `.env` file separately with ohter collaborators via email or IM sorftware if we need to collaborate on development
 
+In other words: one `.env` file on the developer's computer for development, and one `.env` file on the test server and one on the online server for testing and production packaging respectively.
+
 # Route
 Conventional routing. And which specific route is valid is depends on the data returned from menu interface, the data returned from menu interface will be displayed in the left menu bar. While a route(menu data) has been returned by an interface, it's considered valid since it's provided by the interface. However, due to the use of conventional routing, the route will be rendered correctlly only when it has been created in the project directory
 
