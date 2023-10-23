@@ -57,6 +57,7 @@
         "objectsInObjects": true
       }
     ],
+    "no-lonely-if": "error",
     "comma-dangle": [
       "error",
       {
@@ -67,7 +68,6 @@
         "functions": "always-multiline"
       }
     ],
-    "no-lonely-if": "error",
     //eslint-plugin-react配置
     //规则文档: https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules
     "react/sort-comp": [ 2 ],
