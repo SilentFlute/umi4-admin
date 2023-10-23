@@ -69,6 +69,13 @@
       }
     ],
     "eol-last": [ "error", "always" ],
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1,
+        "maxEOF": 0
+      }
+    ],
     //eslint-plugin-react配置
     //规则文档: https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules
     "react/sort-comp": [ 2 ],
