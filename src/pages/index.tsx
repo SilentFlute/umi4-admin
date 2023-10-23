@@ -17,6 +17,6 @@ class Index extends PureComponent<UserConnectedProps> {
 
 export default connect(
   ({ user }: { user: UserConnectedProps['user'] }) => ({
-    user
-  })
+    user,
+  }),
 )(Index);

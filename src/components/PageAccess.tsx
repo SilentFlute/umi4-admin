@@ -43,6 +43,6 @@ const PageAccess: FC<Props> = (props): ReactElement | null => {
 
 export default connect(
   ({ user }: { user: UserConnectedProps['user'] }) => ({
-    user
-  })
+    user,
+  }),
 )(PageAccess);

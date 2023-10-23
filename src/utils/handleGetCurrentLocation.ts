@@ -8,7 +8,7 @@
  */
 const handleGetCurrentLocation = (
   currentMenuItem: API.MenuItem | undefined,
-  indexAllMenuItemById: IndexAllMenuItemByKey<'id'>
+  indexAllMenuItemById: IndexAllMenuItemByKey<'id'>,
 ): API.MenuItem[] | [] => {
   let res: API.MenuItem[] = [];
 
@@ -19,13 +19,13 @@ const handleGetCurrentLocation = (
     key: currentMenuItem.key,
     path: currentMenuItem.path,
     label: currentMenuItem.label,
-    redirect: currentMenuItem.redirect
+    redirect: currentMenuItem.redirect,
   });
 
   if(currentMenuItem.pid) {
     res = [
       ...res,
-      ...handleGetCurrentLocation(indexAllMenuItemById[currentMenuItem.pid], indexAllMenuItemById)
+      ...handleGetCurrentLocation(indexAllMenuItemById[currentMenuItem.pid], indexAllMenuItemById),
     ];
   }
 

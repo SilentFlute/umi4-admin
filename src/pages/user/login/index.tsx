@@ -23,7 +23,7 @@ const Index: FC<UserConnectedProps> = (props) => {
   const handleSubmit = async (values: API.LoginParams) => {
     dispatch?.({
       type: 'user/login',
-      payload: values
+      payload: values,
     });
   };
 
@@ -42,12 +42,12 @@ const Index: FC<UserConnectedProps> = (props) => {
           title="Ant Design"
           subTitle="Ant Design 是西湖区最具影响力的 Web 设计规范"
           initialValues={{
-            autoLogin: true
+            autoLogin: true,
           }}
           submitter={{
             submitButtonProps: {
-              loading: loginBtnLoading
-            }
+              loading: loginBtnLoading,
+            },
           }}
           actions={[
             '其他登录方式',
@@ -72,12 +72,12 @@ const Index: FC<UserConnectedProps> = (props) => {
             items={[
               {
                 key: 'account',
-                label: '账户密码登录'
+                label: '账户密码登录',
               },
               {
                 key: 'mobile',
-                label: '手机号登录'
-              }
+                label: '手机号登录',
+              },
             ]}
           />
           {type === 'account' && (
@@ -162,7 +162,7 @@ const Index: FC<UserConnectedProps> = (props) => {
                     return;
                   }
                   notification.success({
-                    message: '获取验证码成功! 验证码为: 1234'
+                    message: '获取验证码成功! 验证码为: 1234',
                   });
                 }}
               />
@@ -195,6 +195,6 @@ const Index: FC<UserConnectedProps> = (props) => {
 
 export default connect(
   ({ user }: { user: UserConnectedProps['user'] }) => ({
-    user
-  })
+    user,
+  }),
 )(Index);

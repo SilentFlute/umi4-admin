@@ -15,7 +15,7 @@ const Nav: FC = () => {
               display: 'flex',
               alignItems: 'center',
               gap: '0 15px',
-              lineHeight: 1
+              lineHeight: 1,
             }}
           >
             <img
@@ -27,7 +27,7 @@ const Nav: FC = () => {
               style={{
                 margin: 0,
                 color: '#fff',
-                fontSize: '18px'
+                fontSize: '18px',
               }}
             >UMI4 Admin</h1>
           </Link>

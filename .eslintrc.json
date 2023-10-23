@@ -57,6 +57,16 @@
         "objectsInObjects": true
       }
     ],
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "always-multiline"
+      }
+    ],
     "no-lonely-if": "error",
     //eslint-plugin-react配置
     //规则文档: https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules

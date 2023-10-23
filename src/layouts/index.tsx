@@ -45,8 +45,8 @@ const BasicLayout: FC<UserConnectedProps> = (props) => {
   const {
     user: {
       menu, rootSubmenuKeys, indexAllMenuItemById,
-      indexValidMenuItemByPath
-    }
+      indexValidMenuItemByPath,
+    },
   } = props;
   const validMenuItem = indexValidMenuItemByPath[pathname];
   const selectedKeys = validMenuItem?.key;
@@ -56,11 +56,11 @@ const BasicLayout: FC<UserConnectedProps> = (props) => {
       //每次页面重新渲染都要设置openKeys
       setOpenKeys(
         handleGetOpenKeys(
-          handleGetCurrentLocation(indexValidMenuItemByPath[pathname], indexAllMenuItemById)
-        )
+          handleGetCurrentLocation(indexValidMenuItemByPath[pathname], indexAllMenuItemById),
+        ),
       );
     },
-    [ pathname, indexAllMenuItemById, indexValidMenuItemByPath ]
+    [ pathname, indexAllMenuItemById, indexValidMenuItemByPath ],
   );
 
   //Menu中的selectedKeys和openKeys不是一回事:
@@ -95,8 +95,8 @@ const BasicLayout: FC<UserConnectedProps> = (props) => {
             style={{ color: 'inherit' }}
           >{item.label}</Link>
         )
-        : item.label
-    })
+        : item.label,
+    }),
   ).filter((item: API.MenuItem) => !item.hideInMenu);
 
   return (
@@ -105,7 +105,7 @@ const BasicLayout: FC<UserConnectedProps> = (props) => {
         <Header
           style={{
             padding: '0',
-            height: 'auto'
+            height: 'auto',
           }}
         >
           <Nav />
@@ -151,6 +151,6 @@ const BasicLayout: FC<UserConnectedProps> = (props) => {
 
 export default connect(
   ({ user }: { user: UserConnectedProps['user'] }) => ({
-    user
-  })
+    user,
+  }),
 )(BasicLayout);

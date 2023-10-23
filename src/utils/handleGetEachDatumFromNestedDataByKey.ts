@@ -6,7 +6,7 @@
  */
 const handleGetEachDatumFromNestedDataByKey = <T extends { children?: T[] }>(
   data: T[],
-  key: keyof T //确定key的类型为T的键名
+  key: keyof T, //确定key的类型为T的键名
 ): Record<string, T> => {
   //显式声明byKey的类型
   let byKey: Record<string, T> = {};
@@ -21,7 +21,7 @@ const handleGetEachDatumFromNestedDataByKey = <T extends { children?: T[] }>(
     if(datum.children) {
       byKey = {
         ...byKey,
-        ...handleGetEachDatumFromNestedDataByKey(datum.children, key)
+        ...handleGetEachDatumFromNestedDataByKey(datum.children, key),
       };
     }
   });

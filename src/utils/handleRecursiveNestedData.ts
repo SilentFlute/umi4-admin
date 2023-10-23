@@ -6,14 +6,14 @@
  */
 const handleRecursiveNestedData = <T extends { children?: T[] }>(
   data: T[] | undefined,
-  datumCb: (datum: T) => T
+  datumCb: (datum: T) => T,
 ): T[] | [] => (
   data
     ? data.map((datum) => (
       datum.children
         ? {
           ...datum,
-          children: handleRecursiveNestedData(datum.children, datumCb)
+          children: handleRecursiveNestedData(datum.children, datumCb),
         }
         : datumCb(datum)
     ))

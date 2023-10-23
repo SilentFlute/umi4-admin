@@ -10,7 +10,7 @@ const Footer: FC = () => {
   return (
     <DefaultFooter
       style={{
-        backgroundColor: 'inherit'
+        backgroundColor: 'inherit',
       }}
       copyright={`${currentYear} ${defaultMessage}`}
       links={[

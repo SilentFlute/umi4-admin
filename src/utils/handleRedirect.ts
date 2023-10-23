@@ -14,7 +14,7 @@ import { history } from 'umi';
 const handleRedirect = (
   isLoginPage: boolean,
   indexAllMenuItemByPath: IndexAllMenuItemByKey<'path'>,
-  indexValidMenuItemByPath: IndexValidMenuItemByPath
+  indexValidMenuItemByPath: IndexValidMenuItemByPath,
 ): Promise<boolean> => (
   new Promise((resolve) => {
     let routePath = Object.keys(indexValidMenuItemByPath)[0];
@@ -43,7 +43,7 @@ const handleRedirect = (
       }
     }else{
       const {
-        location: { search, pathname }
+        location: { search, pathname },
       } = window;
 
       //考虑url上有查询字符串参数的情况

@@ -4,7 +4,7 @@
  * @returns 通过path索引菜单项的映射
  */
 const handleGetIndexValidMenuItemByPath = (
-  menu: API.MenuData
+  menu: API.MenuData,
 ): IndexValidMenuItemByPath => {
   let byPath: IndexValidMenuItemByPath = {};
 
@@ -14,7 +14,7 @@ const handleGetIndexValidMenuItemByPath = (
     }else{
       byPath = {
         ...byPath,
-        ...handleGetIndexValidMenuItemByPath(item.children)
+        ...handleGetIndexValidMenuItemByPath(item.children),
       };
     }
   });

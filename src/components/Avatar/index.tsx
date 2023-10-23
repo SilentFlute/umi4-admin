@@ -7,12 +7,12 @@ import './index.less';
 
 const Avatar: FC<UserConnectedProps> = (props) => {
   const {
-    user: { data }, dispatch
+    user: { data }, dispatch,
   } = props;
 
   const handleLogout = () => {
     dispatch?.({
-      type: 'user/logout'
+      type: 'user/logout',
     });
   };
 
@@ -26,14 +26,14 @@ const Avatar: FC<UserConnectedProps> = (props) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '0 8px'
+            gap: '0 8px',
           }}
         >
           <LogoutOutlined />
           <span>退出登录</span>
         </a>
-      )
-    }
+      ),
+    },
   ];
 
   return (
@@ -54,6 +54,6 @@ const Avatar: FC<UserConnectedProps> = (props) => {
 
 export default connect(
   ({ user }: { user: UserConnectedProps['user'] }) => ({
-    user
-  })
+    user,
+  }),
 )(Avatar);

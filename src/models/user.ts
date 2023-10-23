@@ -1,7 +1,7 @@
 import { history } from 'umi';
 import {
   userLogin, retrieveUserInfo, retrieveUserInfoAuthorityMenu, userLogout,
-  retrieveUserAuthorityMenu
+  retrieveUserAuthorityMenu,
 } from '@/services/user';
 import type { Effect, Reducer, ConnectProps } from 'umi';
 import handleRedirect from '@/utils/handleRedirect';
@@ -74,8 +74,8 @@ const UserModel: UserModelType = {
         key: '1',
         path: '/',
         label: '首页',
-        redirect: ''
-      }
+        redirect: '',
+      },
     ],
     indexAllMenuItemById: {
       1: {
@@ -83,8 +83,8 @@ const UserModel: UserModelType = {
         key: '1',
         path: '/',
         label: '首页',
-        redirect: ''
-      }
+        redirect: '',
+      },
     },
     indexAllMenuItemByPath: {
       '/': {
@@ -92,8 +92,8 @@ const UserModel: UserModelType = {
         key: '1',
         path: '/',
         label: '首页',
-        redirect: ''
-      }
+        redirect: '',
+      },
     },
     indexValidMenuItemByPath: {
       '/': {
@@ -101,9 +101,9 @@ const UserModel: UserModelType = {
         key: '1',
         path: '/',
         label: '首页',
-        redirect: ''
-      }
-    }
+        redirect: '',
+      },
+    },
   },
   effects: {
     //登录
@@ -112,8 +112,8 @@ const UserModel: UserModelType = {
       yield put({
         type: 'save',
         payload: {
-          loginBtnLoading: true
-        }
+          loginBtnLoading: true,
+        },
       });
 
       const res: API.LoginResponse = yield call(userLogin, payload);
@@ -125,8 +125,8 @@ const UserModel: UserModelType = {
         yield put({
           type: 'getUserInfoAuthorityMenu',
           payload: {
-            type: 'concurrent'
-          }
+            type: 'concurrent',
+          },
         });
       }
     },
@@ -137,21 +137,21 @@ const UserModel: UserModelType = {
       let userInfoRes: API.UserInfoResponse = {
         data: {},
         code: 0,
-        message: ''
+        message: '',
       };
 
       let userAuthorityRes: API.UserAuthorityResponse = {
         data: {
-          authority: []
+          authority: [],
         },
         code: 0,
-        message: ''
+        message: '',
       };
 
       let menuRes: API.MenuDataResponse = {
         data: [],
         code: 0,
-        message: ''
+        message: '',
       };
 
       //用户在登录页登录完成之后执行
@@ -169,8 +169,8 @@ const UserModel: UserModelType = {
           yield put({
             type: 'save',
             payload: {
-              layoutWrapperLoading: false
-            }
+              layoutWrapperLoading: false,
+            },
           });
 
           return false;
@@ -189,7 +189,7 @@ const UserModel: UserModelType = {
         handleRedirect,
         window.location.pathname === '/user/login',
         indexAllMenuItemByPath,
-        indexValidMenuItemByPath
+        indexValidMenuItemByPath,
       );
 
       yield put({
@@ -204,8 +204,8 @@ const UserModel: UserModelType = {
           layoutWrapperLoading: false,
           authority: userAuthorityRes.data.authority,
           rootSubmenuKeys: handleGetRootSubmenuKeys(menuRes.data),
-          indexAllMenuItemById: handleGetEachDatumFromNestedDataByKey(menuRes.data, 'id')
-        }
+          indexAllMenuItemById: handleGetEachDatumFromNestedDataByKey(menuRes.data, 'id'),
+        },
       });
 
       //为保证所有语句都return, 因此这里加一句这个
@@ -217,7 +217,7 @@ const UserModel: UserModelType = {
 
       if(!res.code) {
         yield put({
-          type: 'resetLoginStatus'
+          type: 'resetLoginStatus',
         });
       }
     },
@@ -229,8 +229,8 @@ const UserModel: UserModelType = {
         type: 'save',
         payload: {
           isLogin: false,
-          loginBtnLoading: false
-        }
+          loginBtnLoading: false,
+        },
       });
       
       //当前页面不是登录页, 且没有redirect参数的时候再设置redirect参数
@@ -241,16 +241,16 @@ const UserModel: UserModelType = {
           history.push(`/user/login?redirect=${encodeURIComponent(redirectValue)}`);
         }
       }
-    }
+    },
   },
   reducers: {
     save(state, action) {
       return {
         ...state,
-        ...action.payload
+        ...action.payload,
       };
-    }
-  }
+    },
+  },
 };
 
 export default UserModel;

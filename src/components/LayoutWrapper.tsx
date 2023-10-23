@@ -15,7 +15,7 @@ const LayoutWrapper: FC<Props> = (props) => {
   const { pathname } = useLocation();
   const {
     dispatch, children,
-    user: { isLogin, layoutWrapperLoading, indexValidMenuItemByPath }
+    user: { isLogin, layoutWrapperLoading, indexValidMenuItemByPath },
   } = props;
   const tabTitle = indexValidMenuItemByPath[pathname]?.label;
   const projectTitle = cfg.title;
@@ -27,11 +27,11 @@ const LayoutWrapper: FC<Props> = (props) => {
       dispatch?.({
         type: 'user/getUserInfoAuthorityMenu',
         payload: {
-          type: 'relay'
-        }
+          type: 'relay',
+        },
       });
     },
-    [ dispatch ]
+    [ dispatch ],
   );
 
   //进任何页面都需要先loading
@@ -43,7 +43,7 @@ const LayoutWrapper: FC<Props> = (props) => {
         height: '100vh',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
       }}
     />
   );
@@ -91,6 +91,6 @@ const LayoutWrapper: FC<Props> = (props) => {
 
 export default connect(
   ({ user }: { user: UserConnectedProps['user'] }) => ({
-    user
-  })
+    user,
+  }),
 )(LayoutWrapper);

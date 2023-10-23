@@ -11,12 +11,12 @@ instance.interceptors.request.use(
   (config) => {
     config.headers = {
       ...config.headers,
-      Authorization: localStorage.getItem('Authorization') || ''
+      Authorization: localStorage.getItem('Authorization') || '',
     } as AxiosRequestHeaders;
 
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(error),
 );
 
 instance.interceptors.response.use(
@@ -27,7 +27,7 @@ instance.interceptors.response.use(
 
     if(code) {
       notification.error({
-        message: data.message
+        message: data.message,
       });
     }
 
@@ -53,21 +53,21 @@ instance.interceptors.response.use(
     }
 
     notification.error({
-      message: response.data.message || CodeMessage[status]
+      message: response.data.message || CodeMessage[status],
     });
 
     if(status === 401) {
       const {
-        _store: { dispatch }
+        _store: { dispatch },
       } = getDvaApp();
 
       dispatch({
-        type: 'user/resetLoginStatus'
+        type: 'user/resetLoginStatus',
       });
     }
 
     return Promise.reject(error);
-  }
+  },
 );
 
 export default instance;
