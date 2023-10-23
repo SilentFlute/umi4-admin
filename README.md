@@ -131,6 +131,8 @@ define: {
 
 以及`config`目录下的多环境配置我试了下暂时不行, 也可能是我姿势不对: [请问umi4还支持多config目录下多环境配置吗？#discussioncomment-4807605](https://github.com/umijs/umi/discussions/8341#discussioncomment-4807605), 根目录下`.umirc.ts`的我也没能成功进行多环境的配置, 了解用法的朋友希望能不吝赐教
 
+[为什么运行的是 prod 配置文件而不是 stage 配置文件？"build:stage": "UMI_ENV=stage max build"](https://github.com/umijs/umi/discussions/11636)
+
 # 路由
 使用的是约定式路由. 路由功能的提供, `umi4`使用的是`react-router6`, 官方文档是这个: [React Router](https://reactrouter.com/en/main), 关于约定式路由的嵌套问题可以看这个: [约定式路由无法生成嵌套路由！！](https://github.com/umijs/umi/issues/8850)
 
