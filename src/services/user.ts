@@ -25,7 +25,7 @@ export const retrieveUserInfoAuthorityMenu = (): Promise<API.UserInfoAuthMenuRes
   Promise.all([
     retrieveUserInfo(),
     retrieveUserAuthority(),
-    retrieveMenuData()
+    retrieveMenuData(),
   ])
 );
 
@@ -33,7 +33,7 @@ export const retrieveUserInfoAuthorityMenu = (): Promise<API.UserInfoAuthMenuRes
 export const retrieveUserAuthorityMenu = (): Promise<API.UserAuthMenuResponse> => (
   Promise.all([
     retrieveUserAuthority(),
-    retrieveMenuData()
+    retrieveMenuData(),
   ])
 );
 
