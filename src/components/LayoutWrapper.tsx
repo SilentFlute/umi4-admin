@@ -68,12 +68,12 @@ const LayoutWrapper: FC<Props> = (props) => {
       }
     }
    */
-  if(!layoutWrapperLoading) {
-    if(isLogin) {
-      if(pathname !== '/user/login') {
+  if (!layoutWrapperLoading) {
+    if (isLogin) {
+      if (pathname !== '/user/login') {
         pageContent = children;
       }
-    }else{
+    } else {
       //只要没登陆过就渲染登录页而不是跳转到登录页, 因为登录页不走/src/layouts
       pageContent = <LoginPage />;
     }

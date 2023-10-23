@@ -9,9 +9,9 @@ const handleGetIndexValidMenuItemByPath = (
   let byPath: IndexValidMenuItemByPath = {};
 
   menu.forEach((item: API.MenuItem) => {
-    if(!item.children) {
+    if (!item.children) {
       byPath[item.path] = item;
-    }else{
+    } else {
       byPath = {
         ...byPath,
         ...handleGetIndexValidMenuItemByPath(item.children),

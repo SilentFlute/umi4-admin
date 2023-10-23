@@ -7,7 +7,7 @@ const handleGetRootSubmenuKeys = (menu: API.MenuData): React.Key[] => {
   const keys: React.Key[] = [];
 
   menu.forEach((item: API.MenuItem) => {
-    if(item.children) {
+    if (item.children) {
       keys.push(item.key);
     }
   });

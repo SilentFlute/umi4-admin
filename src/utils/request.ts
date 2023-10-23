@@ -25,7 +25,7 @@ instance.interceptors.response.use(
     const { data } = response;
     const { code } = data;
 
-    if(code) {
+    if (code) {
       notification.error({
         message: data.message,
       });
@@ -56,7 +56,7 @@ instance.interceptors.response.use(
       message: response.data.message || CodeMessage[status],
     });
 
-    if(status === 401) {
+    if (status === 401) {
       const {
         _store: { dispatch },
       } = getDvaApp();

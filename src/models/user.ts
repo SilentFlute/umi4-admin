@@ -119,7 +119,7 @@ const UserModel: UserModelType = {
       const res: API.LoginResponse = yield call(userLogin, payload);
 
       //登录成功之后设置token并获取用户信息等数据
-      if(!res.code) {
+      if (!res.code) {
         localStorage.setItem('Authorization', res.data.token);
 
         yield put({
@@ -155,12 +155,12 @@ const UserModel: UserModelType = {
       };
 
       //用户在登录页登录完成之后执行
-      if(type === 'concurrent') {
+      if (type === 'concurrent') {
         const res: API.UserInfoAuthMenuResponse = yield call(retrieveUserInfoAuthorityMenu);
         userInfoRes = res[0] as API.UserInfoResponse;
         userAuthorityRes = res[1] as API.UserAuthorityResponse;
         menuRes = res[2] as API.MenuDataResponse;
-      }else{
+      } else {
         //其他情形首先查询用户的登录状态, 未登录则不继续操作
         try {
           userInfoRes = yield call(retrieveUserInfo);
@@ -215,7 +215,7 @@ const UserModel: UserModelType = {
     *logout({ payload }, { call, put }) {
       const res: API.LogoutResponse = yield call(userLogout, payload);
 
-      if(!res.code) {
+      if (!res.code) {
         yield put({
           type: 'resetLoginStatus',
         });
@@ -235,8 +235,8 @@ const UserModel: UserModelType = {
       
       //当前页面不是登录页, 且没有redirect参数的时候再设置redirect参数
       //而且这个redirect参数要包含url pathname和查询字符串参数, 即pathname及其后面的所有字符
-      if(window.location.pathname !== '/user/login') {
-        if(!/redirect=/.test(window.location.search)) {
+      if (window.location.pathname !== '/user/login') {
+        if (!/redirect=/.test(window.location.search)) {
           const redirectValue = `${window.location.pathname}${window.location.search}`;
           history.push(`/user/login?redirect=${encodeURIComponent(redirectValue)}`);
         }

@@ -20,7 +20,7 @@ const PageAccess: FC<Props> = (props): ReactElement | null => {
 
   let res = children;
 
-  if(!accessible) {
+  if (!accessible) {
     res = (
       <Result
         title="403"

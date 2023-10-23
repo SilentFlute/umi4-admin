@@ -13,12 +13,12 @@ const handleGetEachDatumFromNestedDataByKey = <T extends { children?: T[] }>(
 
   data.forEach((datum) => {
     //添加类型检查, 避免undefined作为对象的键名
-    if(typeof datum[key] !== 'undefined') {
+    if (typeof datum[key] !== 'undefined') {
       //强制转换为字符串类型, 避免非字符串类型作为对象的键名
       byKey[String(datum[key])] = datum;
     }
 
-    if(datum.children) {
+    if (datum.children) {
       byKey = {
         ...byKey,
         ...handleGetEachDatumFromNestedDataByKey(datum.children, key),

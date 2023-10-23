@@ -20,10 +20,10 @@ const { Header, Content, Sider } = Layout;
  */
 const handleGetOpenKeys = (currentLocation: API.MenuItem[] | []): string[] => {
   //currentLocation为空
-  if(!currentLocation.length) return [ '' ];
+  if (!currentLocation.length) return [ '' ];
 
   //currentLocation只有一项
-  if(currentLocation.length === 1) {
+  if (currentLocation.length === 1) {
     return currentLocation.map((item: API.MenuItem) => `${item.key}`);
   }
 
@@ -74,9 +74,9 @@ const BasicLayout: FC<UserConnectedProps> = (props) => {
   const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
     
-    if(rootSubmenuKeys.indexOf(`${latestOpenKey}`) === -1) {
+    if (rootSubmenuKeys.indexOf(`${latestOpenKey}`) === -1) {
       setOpenKeys(keys);
-    }else{
+    } else {
       setOpenKeys(latestOpenKey ? [ latestOpenKey ] : [ '' ]);
     }
   };

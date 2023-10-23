@@ -12,7 +12,7 @@ const handleGetCurrentLocation = (
 ): API.MenuItem[] | [] => {
   let res: API.MenuItem[] = [];
 
-  if(!currentMenuItem) return res;
+  if (!currentMenuItem) return res;
 
   res.push({
     id: currentMenuItem.id,
@@ -22,7 +22,7 @@ const handleGetCurrentLocation = (
     redirect: currentMenuItem.redirect,
   });
 
-  if(currentMenuItem.pid) {
+  if (currentMenuItem.pid) {
     res = [
       ...res,
       ...handleGetCurrentLocation(indexAllMenuItemById[currentMenuItem.pid], indexAllMenuItemById),

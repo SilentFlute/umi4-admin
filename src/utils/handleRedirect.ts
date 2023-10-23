@@ -19,42 +19,42 @@ const handleRedirect = (
   new Promise((resolve) => {
     let routePath = Object.keys(indexValidMenuItemByPath)[0];
 
-    if(isLoginPage) {
+    if (isLoginPage) {
       const queryString = window.location.search;
   
-      if(queryString) {
+      if (queryString) {
         const matchedRes = queryString.match(/redirect=(.*)/);
   
-        if(matchedRes) {
+        if (matchedRes) {
           //还要考虑redirect参数是否有效
           const decodeRedirect = decodeURIComponent(matchedRes[1]);
           //有效: 跳转
-          if(indexValidMenuItemByPath[decodeRedirect]) {
+          if (indexValidMenuItemByPath[decodeRedirect]) {
             routePath = decodeRedirect;
-          }else if(indexAllMenuItemByPath[decodeRedirect]) {
+          } else if (indexAllMenuItemByPath[decodeRedirect]) {
             //无效
             //有子路由: 跳子路由
             routePath = indexAllMenuItemByPath[decodeRedirect].redirect;
-          }else{
+          } else {
             //无子路由: 还是要跳, 此时就是交由umi处理404的情况了
             routePath = decodeRedirect;
           }
         }
       }
-    }else{
+    } else {
       const {
         location: { search, pathname },
       } = window;
 
       //考虑url上有查询字符串参数的情况
       //有效
-      if(indexValidMenuItemByPath[pathname]) {
+      if (indexValidMenuItemByPath[pathname]) {
         routePath = `${pathname}${search}`;
-      }else if(indexAllMenuItemByPath[pathname]) {
+      } else if (indexAllMenuItemByPath[pathname]) {
         //无效
         //有子路由: 跳子路由
         routePath = `${indexAllMenuItemByPath[pathname].redirect}${search}`;
-      }else{
+      } else {
         //无子路由: 也跳, 此时交由umi处理404的情况
         routePath = `${pathname}${search}`;
       }

@@ -16,9 +16,9 @@ const Access: FC<Props> = (props): ReactElement | null => {
 
   let res = null;
 
-  if(accessible) {
+  if (accessible) {
     res = children;
-  }else if(fallback) {
+  } else if (fallback) {
     res = fallback;
   }
 
