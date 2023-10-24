@@ -128,6 +128,13 @@ const UserModel: UserModelType = {
             type: 'concurrent',
           },
         });
+      } else {
+        yield put({
+          type: 'save',
+          payload: {
+            loginBtnLoading: false,
+          },
+        });
       }
     },
     //获取用户信息和权限以及菜单
