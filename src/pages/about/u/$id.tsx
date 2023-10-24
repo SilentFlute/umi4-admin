@@ -7,7 +7,7 @@ const Index = () => {
   console.log(params);
 
   return (
-    <div>{`/about/u/${params.id}`}</div>
+    <div>{`动态路由: /about/u/${params.id}`}</div>
   );
 };
 
