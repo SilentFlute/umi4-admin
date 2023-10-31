@@ -97,7 +97,7 @@ const BasicLayout: FC<UserConnectedProps> = (props) => {
         )
         : item.label,
     }),
-  ).filter((item: API.MenuItem) => !item.hideInMenu);
+  );
 
   return (
     <LayoutWrapper>

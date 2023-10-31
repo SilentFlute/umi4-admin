@@ -4,20 +4,29 @@
  * @param datumCb 对单条数据进行操作的回调
  * @returns 处理过的数据
  */
-const handleRecursiveNestedData = <T extends { children?: T[] }>(
-  data: T[] | undefined,
-  datumCb: (datum: T) => T,
-): T[] | [] => (
-  data
-    ? data.map((datum) => (
-      datum.children
-        ? {
-          ...datum,
-          children: handleRecursiveNestedData(datum.children, datumCb),
-        }
-        : datumCb(datum)
-    ))
-    : []
-  );
+const handleRecursiveNestedData = (
+  data: API.MenuItem[],
+  datumCb: (datum: API.MenuItem) => API.MenuItem,
+): API.MenuItem[] => {
+
+  const res = [] as API.MenuItem[];
+
+  for (const datum of data) {
+    if (datum.hideInMenu) {
+      continue;
+    }
+
+    if (datum.children) {
+      res.push({
+        ...datum,
+        children: handleRecursiveNestedData(datum.children, datumCb),
+      });
+    } else {
+      res.push(datumCb(datum));
+    }
+  }
+
+  return res;
+};
 
 export default handleRecursiveNestedData;
