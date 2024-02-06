@@ -16,7 +16,7 @@ const PageAccess: FC<Props> = (props): ReactElement | null => {
   //可选操作符用来处理子路由跳转的情形, 因为这里的权限都是有效路由的权限,
   //当遇到输入的是菜单组件中可展开的节点的path的时候就没有权限了, 此时可能会报错,
   //加可选操作符可避免这个报错导致的页面渲染问题
-  const accessible = authority[pathname]?.some((item: string) => userAuthority.indexOf(item) !== -1);
+  const accessible = authority[pathname]?.some((item: string) => userAuthority.includes(item));
 
   let res = children;
 

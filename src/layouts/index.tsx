@@ -72,9 +72,9 @@ const BasicLayout: FC<UserConnectedProps> = (props) => {
 
   //点击有子菜单的父菜单的回调
   const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
-    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
+    const latestOpenKey = keys.find((key) => !openKeys.includes(key));
     
-    if (rootSubmenuKeys.indexOf(`${latestOpenKey}`) === -1) {
+    if (!rootSubmenuKeys.includes(`${latestOpenKey}`)) {
       setOpenKeys(keys);
     } else {
       setOpenKeys(latestOpenKey ? [ latestOpenKey ] : [ '' ]);
