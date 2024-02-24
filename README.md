@@ -121,7 +121,7 @@ define: {
 
 [Should I have multiple .env files?](https://github.com/motdotla/dotenv#should-i-have-multiple-env-files)
 
-个人觉得也不应该提交`.env`以及只有一个`.env`即可, 因为里面的配置提交到库中不安全, 同时每个部署环境都有不同的配置, 协作开发的话单独发即可, 也就是说: 开发者电脑中放一个`.env`文件用于开发, 测试服务器和线上服务器也各放一个`.env`文件, 分别用于测试黄静打包和生产环境打包
+个人觉得也不应该提交`.env`以及只有一个`.env`即可, 因为里面的配置提交到库中不安全, 同时每个部署环境都有不同的配置, 协作开发的话单独发即可, 也就是说: 开发者电脑中放一个`.env`文件用于开发, 测试服务器和线上服务器也各放一个`.env`文件, 分别用于测试环境打包和生产环境打包
 
 但这个情况也不绝对, 需要在不同环境中使用不同配置, 推荐通过`umi`自带的环境变量`UMI_ENV`来完成, 详情可以查看官方文档: [UMI_ENV](https://umijs.org/docs/guides/env-variables#umi_env), 也可以结合这两个来看:
 
