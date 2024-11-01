@@ -2,6 +2,8 @@
 
 The recommended `node` version is `18.14.2`, and the recommended `yarn` version is `1.22.x`
 
+> October 8, 2024: Today, all dependencies were updated to the latest versions. The Node.js version used is the most recent one, 20.18.0. If you encounter issues with installing dependencies or running the program using Node.js 18.14.2, you can try using 20.18.0, or attempt using other versions.
+
 # Overview
 
 A lightweight development framework built with [umi4](https://umijs.org/), integrated conventional routing, custom layout(including custom routing rendering), retrieve menu data from server side, and global state management and permission verification, newest pkg and the best development experience, clone to use
